@@ -1,7 +1,5 @@
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import Home from "./Home";
 import MyCard from "./MyCard";
-import DayWeather from "./DayWeather";
 import { useState } from "react";
 
 const key = "e546e7f2074d9e0c2509db589789d3b7";

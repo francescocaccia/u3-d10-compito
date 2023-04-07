@@ -1,8 +1,6 @@
-import { Container } from "react-bootstrap";
-
 const MyCard = ({ meteo }) => {
   return (
-    <div className="card mb-3" style={{ width: "250px", position: "relative" }}>
+    <div className="card" style={{ width: "250px", position: "relative" }}>
       <img
         src={`http://openweathermap.org/img/wn/${meteo.weather[0].icon}@2x.png`}
         className="card-img-top"
@@ -12,7 +10,7 @@ const MyCard = ({ meteo }) => {
         {meteo.main.temp}°
       </h2>
       <div className="card-body">
-        <small className="card-title">{meteo.dt_txt}</small>
+        <small className="card-title fw-semi-bold">{meteo.dt_txt}</small>
         <h3 className="card-text" style={{ textTransform: "capitalize" }}>
           {meteo.weather[0].description}
         </h3>
