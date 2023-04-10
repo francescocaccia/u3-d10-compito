@@ -2,7 +2,7 @@ import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import MyCard from "./MyCard";
 import { useState } from "react";
 const key = "e546e7f2074d9e0c2509db589789d3b7";
-const weatherApi = `http://api.openweathermap.org/data/2.5/forecast?appid=${key}&units=metric&cnt=9&lang=IT&`;
+const weatherApi = `http://api.openweathermap.org/data/2.5/forecast?appid=${key}&units=metric&cnt=8&lang=IT&`;
 const geoLocationApi = `http://api.openweathermap.org/geo/1.0/direct?limit=1&appid=${key}&q=`;
 
 const Meteo = () => {
@@ -46,7 +46,12 @@ const Meteo = () => {
           />
         </Form.Group>
         <div>
-          <Button className="mt-5 mx-3" variant="primary" type="submit">
+          <Button
+            className="mt-5 mx-3 fw-semibold"
+            variant="warning
+          "
+            type="submit"
+          >
             Mostra il meteo
           </Button>
         </div>

@@ -2,7 +2,7 @@ import CardData from "./CardData";
 
 const MyCard = ({ meteo }) => {
   return (
-    <div className="col mb-3">
+    <div className="col mb-3 ">
       <div className="card" style={{ width: "250px", position: "relative" }}>
         <img
           src={`http://openweathermap.org/img/wn/${meteo.weather[0].icon}@2x.png`}
