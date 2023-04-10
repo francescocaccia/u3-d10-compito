@@ -1,7 +1,6 @@
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
 import MyCard from "./MyCard";
 import { useState } from "react";
-
 const key = "e546e7f2074d9e0c2509db589789d3b7";
 const weatherApi = `http://api.openweathermap.org/data/2.5/forecast?appid=${key}&units=metric&cnt=4&lang=IT&`;
 const geoLocationApi = `http://api.openweathermap.org/geo/1.0/direct?limit=1&appid=${key}&q=`;
@@ -10,8 +9,8 @@ const Meteo = () => {
   const [city, setCity] = useState("");
   const [meteoData, setMeteoData] = useState([]);
 
-  const onFormSubmit = evt => {
-    evt.preventDefault();
+  const onFormSubmit = e => {
+    e.preventDefault();
     const getCity = async () => {
       const rawData = await fetch(geoLocationApi + city);
       const data = await rawData.json();
@@ -41,8 +40,8 @@ const Meteo = () => {
             value={city}
             type="text"
             placeholder="Città, paese"
-            onChange={evt => {
-              setCity(evt.target.value);
+            onChange={e => {
+              setCity(e.target.value);
             }}
           />
         </Form.Group>
