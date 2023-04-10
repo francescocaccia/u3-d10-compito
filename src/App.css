@@ -2,7 +2,8 @@
     background-image: url(https://www.suoloesalute.it/wp-content/uploads/2015/09/sfondo-meteo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 150vh;
+    background-attachment: fixed;
 }
 
 
