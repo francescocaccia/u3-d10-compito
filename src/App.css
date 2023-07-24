@@ -1,12 +1,21 @@
-.App {
-    background-image: url(https://www.suoloesalute.it/wp-content/uploads/2015/09/sfondo-meteo.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 150vh;
-    background-attachment: fixed;
+body {
+    background-color: #4a6884;
+    color: #fff;
+    font-family: Arial, sans-serif;
 }
 
 
 .form {
     display: flex;
 }
+
+/* Stili per l'interfaccia Meteo */
+
+.listMeteo {
+    background: rgba(255, 255, 255, 0.158);
+    backdrop-filter: blur(10px);
+}
+
+
+
+/* chatgpr css */

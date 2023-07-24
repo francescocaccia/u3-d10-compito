@@ -1,6 +1,8 @@
-import { Container, Form, Button, Row, Col } from "react-bootstrap";
+import { Container, Form, Button, ListGroup } from "react-bootstrap";
 import MyCard from "./MyCard";
 import { useState } from "react";
+import meteo from "../meteo.svg";
+import { BsSearch } from "react-icons/bs";
 const key = "e546e7f2074d9e0c2509db589789d3b7";
 const weatherApi = `http://api.openweathermap.org/data/2.5/forecast?appid=${key}&units=metric&cnt=8&lang=IT&`;
 const geoLocationApi = `http://api.openweathermap.org/geo/1.0/direct?limit=1&appid=${key}&q=`;
@@ -33,36 +35,40 @@ const Meteo = () => {
   };
   return (
     <Container fluid>
-      <Form onSubmit={onFormSubmit} className="mb-3 d-flex">
+      <Form onSubmit={onFormSubmit} className="mb-3 d-flex justify-content-center mt-5">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="fw-bold fs-3">Scrivi la città per scoprire il meteo</Form.Label>
-          <Form.Control
-            value={city}
-            type="text"
-            placeholder="Città, paese"
-            onChange={e => {
-              setCity(e.target.value);
-            }}
-          />
+          <div className="d-flex">
+            <Form.Control
+              value={city}
+              type="text"
+              placeholder="Città, paese"
+              onChange={e => {
+                setCity(e.target.value);
+              }}
+            />
+            <Button
+              className="fw-semibold text-light align-items-center d-flex"
+              variant="info"
+              type="submit"
+            >
+              Cerca <BsSearch className="ms-2" />
+            </Button>
+          </div>
         </Form.Group>
-        <div>
-          <Button
-            className="mt-5 mx-3 fw-semibold"
-            variant="warning
-          "
-            type="submit"
-          >
-            Mostra il meteo
-          </Button>
-        </div>
       </Form>
-      <Row>
+      {meteoData.length > 0 ? <ListGroup className="listMeteo">
         {meteoData.map(met => (
-          <Col key={met.dt}>
-            <MyCard meteo={met} />
-          </Col>
+          <MyCard key={met.dt} meteo={met} />
         ))}
-      </Row>
+      </ListGroup> :
+        <div className="container d-flex flex-column align-items-center mt-4">
+          <h1 className="text-center mb-2">Francesco's Weather Glow</h1>
+          <div style={{ maxHeight: "710px", maxWidth: "710px" }} >
+            <img src={meteo} alt="immagineMeteo" style={{ objectFit: "cover" }} className="mb-4 img-fluid " />
+          </div>
+        </div>
+      }
     </Container>
   );
 };

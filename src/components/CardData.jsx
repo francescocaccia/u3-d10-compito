@@ -5,14 +5,9 @@ const CardData = props => {
   const [anno, mese, giorno] = data.split("-");
   const [ore, minuti, secondi] = ora.split(":");
   return (
-    <p className="d-flex justify-content-between">
-      <span>
-        {giorno}/{mese}
-      </span>
-      <span>
-        {ore}:{minuti}
-      </span>
-    </p>
+    <div className="d-flex flex-column justify-content-center align-items-center m-0 fs-5">
+      <p className="m-0">giorno: {giorno}/{mese}</p> <p className="m-0">ore: {ore}:{minuti}</p>
+    </div>
   );
 };
 
