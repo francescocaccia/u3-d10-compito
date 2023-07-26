@@ -26,7 +26,9 @@ const Meteo = () => {
       const data = await rawData.json();
       const forecast = data.list;
       setMeteoData(forecast);
+      console.log(data)
       return data;
+
     };
 
     getCity().then(latLon => {
@@ -56,9 +58,9 @@ const Meteo = () => {
 
       {/* Visualizza l'h2 solo se meteoData ha dati */}
       {meteoData.length > 0 && (
-        <h2 className="fs-2 text-center">
-          <img src={meteo} alt="logoMeteo" width={50} height={50} /> {city}:
-        </h2>
+        <div className="fs-2 text-center">
+          <img src={meteo} alt="logoMeteo" width={90} height={90} /><p className="m-0">Meteo di:</p> <span className="text-info fs-1">{city} </span>{city.coord}
+        </div>
       )}
 
       {meteoData.length > 0 ? (
