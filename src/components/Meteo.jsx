@@ -34,7 +34,7 @@ const Meteo = () => {
     });
   };
   return (
-    <Container fluid>
+    <Container fluid className="mb-5">
       <Form onSubmit={onFormSubmit} className="mb-3 d-flex justify-content-center mt-5">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="fw-bold fs-3">Scrivi la città per scoprire il meteo</Form.Label>
@@ -63,7 +63,7 @@ const Meteo = () => {
         ))}
       </ListGroup> :
         <div className="container d-flex flex-column align-items-center mt-4">
-          <h1 className="text-center mb-2">Francesco's Weather Glow</h1>
+          <h1 className="text-center mb-2">Francesco's Weather Forecast</h1>
           <div style={{ maxHeight: "710px", maxWidth: "710px" }} >
             <img src={meteo} alt="immagineMeteo" style={{ objectFit: "cover" }} className="mb-4 img-fluid " />
           </div>
