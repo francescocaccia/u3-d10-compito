@@ -43,32 +43,38 @@ const Meteo = () => {
               value={city}
               type="text"
               placeholder="Città, paese"
-              onChange={e => {
+              onChange={(e) => {
                 setCity(e.target.value);
               }}
             />
-            <Button
-              className="fw-semibold text-light align-items-center d-flex"
-              variant="info"
-              type="submit"
-            >
+            <Button className="fw-semibold text-light align-items-center d-flex" variant="info" type="submit">
               Cerca <BsSearch className="ms-2" />
             </Button>
           </div>
         </Form.Group>
       </Form>
-      {meteoData.length > 0 ? <ListGroup className="listMeteo">
-        {meteoData.map(met => (
-          <MyCard key={met.dt} meteo={met} />
-        ))}
-      </ListGroup> :
+
+      {/* Visualizza l'h2 solo se meteoData ha dati */}
+      {meteoData.length > 0 && (
+        <h2 className="fs-2 text-center">
+          <img src={meteo} alt="logoMeteo" width={50} height={50} /> {city}:
+        </h2>
+      )}
+
+      {meteoData.length > 0 ? (
+        <ListGroup className="listMeteo">
+          {meteoData.map((met) => (
+            <MyCard key={met.dt} meteo={met} city={city} />
+          ))}
+        </ListGroup>
+      ) : (
         <div className="container d-flex flex-column align-items-center mt-4">
           <h1 className="text-center mb-2">Francesco's Weather Forecast</h1>
-          <div style={{ maxHeight: "710px", maxWidth: "710px" }} >
+          <div style={{ maxHeight: "710px", maxWidth: "710px" }}>
             <img src={meteo} alt="immagineMeteo" style={{ objectFit: "cover" }} className="mb-4 img-fluid " />
           </div>
         </div>
-      }
+      )}
     </Container>
   );
 };

@@ -1,7 +1,9 @@
 import { ListGroupItem } from "react-bootstrap";
 import CardData from "./CardData";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
-const MyCard = ({ meteo }) => {
+
+
+const MyCard = ({ meteo, city }) => {
   return (
     <>
       <ListGroupItem className="d-flex flex-column flex-md-row justify-content-between align-items-center bg-transparent">
